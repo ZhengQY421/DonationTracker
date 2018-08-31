@@ -37,7 +37,6 @@ public class Person1 {
      	 finalString += input.charAt(0);
       	 finalString += input.charAt(1);
       	 return finalString;
-	 return null;
 	}
 	
 	/**
