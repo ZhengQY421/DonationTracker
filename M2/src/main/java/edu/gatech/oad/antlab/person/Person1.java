@@ -3,8 +3,8 @@ package edu.gatech.oad.antlab.person;
 /**
  *  A simple class for person 1
  *  returns their name and a
- *  modified string 
- *  
+ *  modified string
+ *
  *  @author Shouen Lee
  *  @version 1.2
  */
@@ -30,22 +30,22 @@ public class Person1 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	 	String finalString;
+	 	String finalString = "";
      	for (int i = 2; i < input.length(); i++) {
        		finalString += input.charAt(i);
      	}
      	finalString += input.charAt(0);
       	finalString += input.charAt(1);
-      	
+
       	return finalString;
 	}
-	
+
 	/**
 	 * Return a string rep of this object
 	 * that varies with an input string
 	 *
 	 * @param input the varying string
-	 * @return the string representing the 
+	 * @return the string representing the
 	 *         object
 	 */
 	public String toString(String input) {
