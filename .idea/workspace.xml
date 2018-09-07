@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="449178a1-e4b8-4e4f-8781-2c3690368afa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/person/Person2.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/person/Person2.java" afterDir="false" />
-    </list>
+    <list default="true" id="449178a1-e4b8-4e4f-8781-2c3690368afa" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Person2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Person2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/person/Person2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
               <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AntLabMain.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/pkg1/AntLabMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="54" column="24" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -31,6 +38,13 @@
       <map>
         <entry key="$PROJECT_DIR$" value="john" />
       </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/pkg1/AntLabMain.java" />
+      </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -123,11 +137,12 @@
       <workItem from="1536290418738" duration="9000" />
       <workItem from="1536290447534" duration="5000" />
       <workItem from="1536290511398" duration="2000" />
+      <workItem from="1536290620942" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80000" />
+    <option name="totallyTimeSpent" value="94000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="23" width="1379" height="877" extended-state="0" />
@@ -171,6 +186,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/person/Person2.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/person/Person2.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
         </state>
@@ -189,6 +211,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M2/src/main/java/edu/gatech/oad/antlab/pkg1/AntLabMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="54" column="24" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
         </state>
       </provider>
     </entry>
