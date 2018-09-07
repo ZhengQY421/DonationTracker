@@ -30,8 +30,22 @@ public class Person2 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+
+		char[] characters = input.toCharArray();
+
+		for (int i = 0; i<characters.length; i++){
+
+            //Generate two random indices
+		    int index1 = (int) (Math.random()*characters.length);
+            int index2 = (int) (Math.random()*characters.length);
+
+            //Swap the characters at the indices
+            char first = characters[index1];
+            characters[index1] = characters[index2];
+            characters[index2] = first;
+        }
+
+        return new String(characters);
 	}
 	/**
 	 * Return a string rep of this object

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="M2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/M2/build/libs/M2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
