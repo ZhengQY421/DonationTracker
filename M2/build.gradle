@@ -1,11 +1,5 @@
 apply plugin: 'java'
 
-<<<<<<< HEAD
-apply plugin: 'findbugs'
-
-apply plugin: 'pmd'
-apply plugin
-=======
 defaultTasks 'jar'
 
 jar {
@@ -17,4 +11,3 @@ jar {
 dependencies {
     compile files('lib/resources.jar')
 }
->>>>>>> 654f08b3b20938237dc1aa180c5eeb2c314df8d7
