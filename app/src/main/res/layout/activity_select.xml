@@ -41,7 +41,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/username_sign_in_button2"
+                android:id="@+id/username_register_button2"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -19,10 +19,22 @@ public class SelectActivity extends AppCompatActivity {
                 login();
             }
         });
+
+        final Button button2 = findViewById(R.id.username_register_button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                register();
+            }
+        });
     }
 
     private void login() {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void register() {
+        Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
 }
