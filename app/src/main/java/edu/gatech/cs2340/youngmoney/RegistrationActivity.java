@@ -19,15 +19,13 @@ public class RegistrationActivity extends Activity {
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
-        spinner.setOnItemSelectedListener(this);
+        // spinner.setOnItemSelectedListener(this);
 
         List<String> categories = new ArrayList<String>();
-        categories.add("Automobile");
-        categories.add("Business Services");
-        categories.add("Computers");
-        categories.add("Education");
-        categories.add("Personal");
-        categories.add("Travel");
+        categories.add("User");
+        categories.add("Location");
+        categories.add("Employee");
+        categories.add("Admin");
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
 
