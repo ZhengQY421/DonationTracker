@@ -25,4 +25,24 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SelectActivity.class);
         startActivity(intent);
     }
+
+    /*
+    private void readCSVFile() {
+        SimpleModel model = SimpleModel.INSTANCE;
+
+        try {
+            InputStream is = getResources().openRawResource(R.raw.sample);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                Log.d(HomeActivity.TAG, line);
+                String[] tokens = line.split(",");
+                int id = Integer.parseInt(tokens[1]);
+                model.addItem
+            }
+        }
+    }*/
 }
