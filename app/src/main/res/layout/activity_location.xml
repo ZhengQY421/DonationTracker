@@ -12,21 +12,14 @@
     tools:context=".LoginActivity">
 
     <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
 
     <ScrollView
-        android:id="@+id/login_form"
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/username_login_form"
+            android:id="@+id/form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -35,23 +28,15 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome to Young Money!" />
+                android:text="@string/locations_title"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2" />
 
-            <Button
-                android:id="@+id/locations_button"
+            <TextView
+                android:id="@+id/locations_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_locations" />
-
-            <Button
-                android:id="@+id/log_out_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/action_log_out"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
