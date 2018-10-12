@@ -7,6 +7,7 @@
     <string name="action_sign_in">Sign in</string>
     <string name="action_register">Register</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="action_locations">View Locations</string>
     <string name="error_invalid_username">This username is invalid</string>
     <string name="error_invalid_password">This password incorrect</string>
     <string name="error_incorrect_password">This password is incorrect</string>
@@ -16,4 +17,6 @@
     </string>
     <string name="action_log_out">Log Out</string>
     <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="locations_title">Locations</string>
 </resources>
