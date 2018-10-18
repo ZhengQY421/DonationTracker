@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.youngmoney;
+package edu.gatech.cs2340.youngmoney.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -32,6 +32,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.gatech.cs2340.youngmoney.model.Model;
+import edu.gatech.cs2340.youngmoney.model.Location;
+import edu.gatech.cs2340.youngmoney.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

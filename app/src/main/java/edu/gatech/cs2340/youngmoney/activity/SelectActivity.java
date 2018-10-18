@@ -1,10 +1,14 @@
-package edu.gatech.cs2340.youngmoney;
+package edu.gatech.cs2340.youngmoney.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import edu.gatech.cs2340.youngmoney.model.Model;
+import edu.gatech.cs2340.youngmoney.model.Location;
+import edu.gatech.cs2340.youngmoney.R;
 
 public class SelectActivity extends AppCompatActivity {
 

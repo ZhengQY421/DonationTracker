@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.youngmoney;
+package edu.gatech.cs2340.youngmoney.activity;
 
 import android.os.Build;
 import android.animation.Animator;
@@ -19,6 +19,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 import android.view.View.OnClickListener;
+
+import edu.gatech.cs2340.youngmoney.model.Model;
+import edu.gatech.cs2340.youngmoney.model.Location;
+import edu.gatech.cs2340.youngmoney.R;
 
 public class RegistrationActivity extends Activity {
     private RegisterTask mRegisterTask = null;
