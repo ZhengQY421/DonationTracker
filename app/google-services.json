@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1073316853723",
+    "firebase_url": "https://youngmoney-b6875.firebaseio.com",
+    "project_id": "youngmoney-b6875",
+    "storage_bucket": "youngmoney-b6875.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073316853723:android:db0f477c4a1be839",
+        "android_client_info": {
+          "package_name": "edu.gatech.cs2340.youngmoney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073316853723-33t9dc9ahof6cg65chiusl8tnodq16ia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEbqL4mYF5i32fB4NlqYwFX1bI3Is6yts"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
