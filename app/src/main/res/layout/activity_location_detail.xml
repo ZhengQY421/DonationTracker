@@ -109,4 +109,23 @@
         android:layout_marginTop="11dp"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/loc_detail_name"
+        android:layout_below="@+id/loc_detail_web"
+        android:text="Donations"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonDonation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/loc_detail_name"
+        android:layout_below="@+id/textView3"
+        android:text="New Donation" />
+
 </RelativeLayout>

@@ -31,15 +31,16 @@
             android:label="@string/title_activity_registration" />
         <activity
             android:name=".activity.LocationActivity"
-            android:label="@string/title_activity_location"></activity>
-
-        <activity
-            android:name=".activity.LocationDetailActivity">
-        </activity>
+            android:label="@string/title_activity_location" />
+        <activity android:name=".activity.LocationDetailActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".activity.NewDonationActivity"
+            android:label="@string/title_activity_new_donation"></activity>
     </application>
 
 </manifest>

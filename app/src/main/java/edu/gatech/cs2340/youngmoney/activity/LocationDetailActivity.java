@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.youngmoney.model.Model;
@@ -51,5 +52,18 @@ public class LocationDetailActivity extends AppCompatActivity {
 
         TextView web = findViewById(R.id.loc_detail_web);
         web.setText(loc.getWebsite());
+
+        final Button button = findViewById(R.id.buttonDonation);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                newDonation();
+            }
+        });
+    }
+
+    private void newDonation() {
+        Intent intent = new Intent(this, NewDonationActivity.class);
+        intent.putExtra("location", loc);
+        startActivity(intent);
     }
 }
