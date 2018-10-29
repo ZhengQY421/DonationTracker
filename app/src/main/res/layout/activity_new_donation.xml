@@ -88,6 +88,57 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="260dp" />
 
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full Description"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+        <EditText
+            android:id="@+id/fulldesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="260dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Value"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+        <EditText
+            android:id="@+id/value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="260dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+        <EditText
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="260dp" />
+
         <Button
             android:id="@+id/create"
             android:layout_width="match_parent"

@@ -5,12 +5,18 @@ public class Donation {
     private String date;
     private Location location;
     private String user;
+    private String fulldesc;
+    private String value;
+    private String category;
 
-    public Donation(String item, String date, Location location, String user) {
+    public Donation(String item, String date, Location location, String user, String fulldesc, String value, String category) {
         this.item = item;
         this.date = date;
         this.location = location;
         this.user = user;
+        this.fulldesc = fulldesc;
+        this.value = value;
+        this.category = category;
     }
 
     public String getItem() {
@@ -27,5 +33,14 @@ public class Donation {
 
     public String getUser() {
         return user;
+    }
+    public String getFulldesc() {
+        return fulldesc;
+    }
+    public String getValue() {
+        return value;
+    }
+    public String getCategory() {
+        return category;
     }
 }

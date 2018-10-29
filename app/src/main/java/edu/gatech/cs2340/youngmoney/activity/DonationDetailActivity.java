@@ -31,6 +31,15 @@ public class DonationDetailActivity extends Activity {
 
         TextView date = findViewById(R.id.date);
         date.setText(donation.getDate());
+
+        TextView fulldesc = findViewById(R.id.fulldesc);
+        fulldesc.setText(donation.getFulldesc());
+
+        TextView value = findViewById(R.id.value);
+        value.setText(donation.getValue());
+
+        TextView category = findViewById(R.id.category);
+        category.setText(donation.getCategory());
     }
 
 }
