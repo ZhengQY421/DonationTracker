@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,12 +22,12 @@ import edu.gatech.cs2340.youngmoney.model.Model;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
 
-import edu.gatech.cs2340.youngmoney.R;
-
 public class LocationDetailActivity extends AppCompatActivity {
 
     private Location loc;
     private Model model = Model.get_instance();
+    private RecyclerView recyclerView;
+    private SimpleDonationRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,11 +60,17 @@ public class LocationDetailActivity extends AppCompatActivity {
                 newDonation();
             }
         });
+
+        recyclerView = findViewById(R.id.donations);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+
+        adapter = new SimpleDonationRecyclerViewAdapter(LocationDetailActivity.this, loc.getDonations());
+        recyclerView.setAdapter(adapter);
     }
 
     private void newDonation() {
         Intent intent = new Intent(this, NewDonationActivity.class);
-        intent.putExtra("location", loc);
         startActivity(intent);
     }
 }

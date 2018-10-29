@@ -22,7 +22,7 @@ public class Model {
 
     private Location _current;
 
-    private Model (){
+    public Model (){
 
             _current = null;
     }

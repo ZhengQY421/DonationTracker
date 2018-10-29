@@ -32,7 +32,7 @@
         <activity
             android:name=".activity.LocationActivity"
             android:label="@string/title_activity_location" />
-        <activity android:name=".activity.LocationDetailActivity"></activity>
+        <activity android:name=".activity.LocationDetailActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -40,7 +40,10 @@
 
         <activity
             android:name=".activity.NewDonationActivity"
-            android:label="@string/title_activity_new_donation"></activity>
+            android:label="@string/title_activity_new_donation" />
+        <activity
+            android:name=".activity.DonationDetailActivity"
+            android:label="@string/title_activity_donation_detail"></activity>
     </application>
 
 </manifest>

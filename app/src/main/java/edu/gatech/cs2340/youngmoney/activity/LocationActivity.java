@@ -1,28 +1,11 @@
 package edu.gatech.cs2340.youngmoney.activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.TextView;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.LayoutInflater;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import edu.gatech.cs2340.youngmoney.model.Model;
+import edu.gatech.cs2340.youngmoney.model.ModelLocations;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
 
@@ -30,8 +13,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
 public class LocationActivity extends AppCompatActivity {
@@ -39,6 +20,7 @@ public class LocationActivity extends AppCompatActivity {
     private ArrayList<Location> locations;
     private RecyclerView recyclerView;
     private SimpleLocationRecyclerViewAdapter adapter;
+    private ModelLocations modelLocations = ModelLocations.get_instance();
 
 
     @Override
@@ -51,9 +33,11 @@ public class LocationActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.location_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        loadCSV();
+        if (modelLocations.get_current() == null) {
+            loadCSV();
+        }
 
-        adapter = new SimpleLocationRecyclerViewAdapter(LocationActivity.this, locations);
+        adapter = new SimpleLocationRecyclerViewAdapter(LocationActivity.this, modelLocations.get_current());
         recyclerView.setAdapter(adapter);
 
         //TODO: figure out how to fetch and display from database
@@ -71,7 +55,7 @@ public class LocationActivity extends AppCompatActivity {
                 Location loc = new Location(s[1],s[8],s[7], s[9], s[6], s[4], s[10], s[2], s[3], s[5]);
                 locations.add(loc);
             }
-
+            modelLocations.set_current(locations);
         } catch (IOException e) { }
     }
 

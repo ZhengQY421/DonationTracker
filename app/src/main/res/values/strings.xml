@@ -20,4 +20,5 @@
     <string name="title_activity_location">LocationActivity</string>
     <string name="locations_title">Locations</string>
     <string name="title_activity_new_donation">New Donation</string>
+    <string name="title_activity_donation_detail">DonationDetailActivity</string>
 </resources>

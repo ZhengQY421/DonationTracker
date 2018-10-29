@@ -11,18 +11,19 @@ import android.widget.TextView;
 import edu.gatech.cs2340.youngmoney.R;
 import edu.gatech.cs2340.youngmoney.model.Donation;
 import edu.gatech.cs2340.youngmoney.model.Location;
+import edu.gatech.cs2340.youngmoney.model.Model;
 
 public class NewDonationActivity extends Activity {
 
     private Location location;
+    private Model model = Model.get_instance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_donation);
 
-        Intent intent = getIntent();
-        location = (Location) intent.getSerializableExtra("location");
+        location = model.get_current();
 
         TextView locationText = findViewById(R.id.location);
         locationText.setText(location.getName());
@@ -51,6 +52,8 @@ public class NewDonationActivity extends Activity {
         EditText user = findViewById(R.id.user);
         EditText date = findViewById(R.id.date);
         location.addDonation(new Donation(item.getText().toString(), date.getText().toString(), location, user.getText().toString()));
-        cancel();
+
+        Intent intent = new Intent(this, LocationActivity.class);
+        startActivity(intent);
     }
 }
