@@ -2,7 +2,7 @@
     $src = $_POST['src'];
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-    $conn = new mysqli("localhost", "root", "M0ney$3x", "youngmoney");
+    $conn = new mysqli("localhost", "root", "that-aint-it-chief", "youngmoney");
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
