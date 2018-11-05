@@ -3,13 +3,13 @@ package edu.gatech.cs2340.youngmoney.model;
 public class Donation {
     private String item;
     private String date;
-    private Location location;
+    private String location;
     private String user;
     private String fulldesc;
     private String value;
     private String category;
 
-    public Donation(String item, String date, Location location, String user, String fulldesc, String value, String category) {
+    public Donation(String item, String date, String location, String user, String fulldesc, String value, String category) {
         this.item = item;
         this.date = date;
         this.location = location;
@@ -27,7 +27,7 @@ public class Donation {
         return date;
     }
 
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 

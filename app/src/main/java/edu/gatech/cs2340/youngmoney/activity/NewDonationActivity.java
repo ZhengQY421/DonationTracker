@@ -54,7 +54,13 @@ public class NewDonationActivity extends Activity {
         EditText fulldesc = findViewById(R.id.fulldesc);
         EditText value = findViewById(R.id.value);
         EditText category = findViewById(R.id.category);
-        location.addDonation(new Donation(item.getText().toString(), date.getText().toString(), location, user.getText().toString(), fulldesc.getText().toString(), value.getText().toString(), category.getText().toString()));
+        location.addDonation(new Donation(item.getText().toString(),
+                date.getText().toString(),
+                location.getName(),
+                user.getText().toString(),
+                fulldesc.getText().toString(),
+                value.getText().toString(),
+                category.getText().toString()), this);
 
         Intent intent = new Intent(this, LocationActivity.class);
         startActivity(intent);

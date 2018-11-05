@@ -48,28 +48,9 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/action_log_out"
                 android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/location_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Locations" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
-
-    <SearchView
-        android:id="@+id/itemSearch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </LinearLayout>

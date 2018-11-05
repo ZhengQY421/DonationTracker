@@ -1,10 +1,14 @@
 package edu.gatech.cs2340.youngmoney.model;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import android.content.Context;
 
 public class Location implements Serializable {
 
+    private String id;
     private String name;
     private String type;
     private String phone;
@@ -46,8 +50,20 @@ public class Location implements Serializable {
     public ArrayList<Donation> getDonations() {
         return donations;
     }
-    public void addDonation(Donation donation) {
+    public void addDonation(Donation donation, Context context) {
         donations.add(donation);
+        if (context != null) {
+            try {
+                FileOutputStream outputStream = context.openFileOutput("donations.csv", Context.MODE_APPEND);
+                String serialized = donation.getItem() + "," + donation.getDate() + "," +
+                        donation.getLocation() + "," + donation.getUser() + "," +
+                        donation.getFulldesc() + "," + donation.getValue() + "," +
+                        donation.getCategory() + "\n";
+                outputStream.write(serialized.getBytes());
+                outputStream.close();
+            } catch (IOException exception) {
+            }
+        }
     }
 }
 

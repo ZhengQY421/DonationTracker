@@ -27,7 +27,7 @@ public class DonationDetailActivity extends Activity {
         user.setText(donation.getUser());
 
         TextView location = findViewById(R.id.location);
-        location.setText(donation.getLocation().getName());
+        location.setText(donation.getLocation());
 
         TextView date = findViewById(R.id.date);
         date.setText(donation.getDate());
