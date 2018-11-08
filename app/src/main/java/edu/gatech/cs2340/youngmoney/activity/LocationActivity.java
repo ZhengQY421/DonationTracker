@@ -61,7 +61,7 @@ public class LocationActivity extends AppCompatActivity {
         }
 
         searchMessage = findViewById(R.id.searchMessage);
-        searchView = findViewById(R.id.itemSearchAllLocations);
+        searchView = findViewById(R.id.itemSearchLocation);
 
 
         adapter = new SimpleLocationRecyclerViewAdapter(LocationActivity.this, modelLocations.get_current());
@@ -116,9 +116,6 @@ public class LocationActivity extends AppCompatActivity {
             }
         });
 
-
-        //TODO: figure out how to fetch and display from database
-        //loadDatabase();
     }
 
 
@@ -183,100 +180,5 @@ public class LocationActivity extends AppCompatActivity {
             }
         } catch (IOException e) {}
     }
-
-    /*
-    private void loadDatabase (){
-
-        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("Donation Centers");
-
-        mRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                String name = dataSnapshot.getKey();
-
-                HashMap<String, String> info = (HashMap<String, String>)dataSnapshot.getValue();
-
-                String zip = String.valueOf(info.get("Zip"));
-                String type = info.get("Type");
-                String phone = info.get("Phone");
-                String state = info.get("State");
-                String address = info.get("Street Address");
-                String website = info.get("Website");
-                String lat = String.valueOf(info.get("Latitude"));
-                String city = info.get("City");
-                String lng = String.valueOf(info.get("Long"));
-
-                Location loc = new Location(name, type, zip, phone, state, address, website, lat, lng, city);
-                locations.add(loc);
-
-                recyclerView.setAdapter(adapter);
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        /*
-        mRef.addValueEventListener(new ValueEventListener() {
-
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                Log.d("Database","Database initialized");
-
-                locations = new ArrayList<>();
-
-                for (DataSnapshot snapshotNode: dataSnapshot.getChildren()) {
-
-                    String name = snapshotNode.getKey();
-
-                    HashMap<String, String> info = (HashMap<String, String>)snapshotNode.getValue();
-
-                    String zip = String.valueOf(info.get("Zip"));
-                    String type = info.get("Type");
-                    String phone = info.get("Phone");
-                    String state = info.get("State");
-                    String address = info.get("Street Address");
-                    String website = info.get("Website");
-                    String lat = String.valueOf(info.get("Latitude"));
-                    String city = info.get("City");
-                    String lng = String.valueOf(info.get("Long"));
-
-                    Location loc = new Location(name, type, zip, phone, state, address, website, lat, lng, city);
-                    locations.add(loc);
-                    SimpleLocationRecyclerViewAdapter adapter = new SimpleLocationRecyclerViewAdapter(LocationActivity.this, locations);
-                    recyclerView.setAdapter(adapter);
-                    //adapter.notifyDataSetChanged();
-                    Log.d("Database",loc.getName()+" added");
-                }
-
-                Log.d("Database","Database initialization done");
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
-        */
-    }
+}
 

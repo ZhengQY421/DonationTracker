@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import edu.gatech.cs2340.youngmoney.model.Model;
-import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
 
 public class HomeActivity extends AppCompatActivity {
@@ -30,6 +28,15 @@ public class HomeActivity extends AppCompatActivity {
                 locations();
             }
         });
+
+        final Button button3 = findViewById(R.id.map_button);
+        button3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                map();
+            }
+        });
     }
 
     private void logout() {
@@ -39,6 +46,11 @@ public class HomeActivity extends AppCompatActivity {
 
     private void locations() {
         Intent intent = new Intent(this, LocationActivity.class);
+        startActivity(intent);
+    }
+
+    private void map(){
+        Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
 
