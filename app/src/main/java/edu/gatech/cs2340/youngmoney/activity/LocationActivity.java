@@ -212,12 +212,9 @@ public class LocationActivity extends AppCompatActivity {
 
                 while ((line = in.readLine()) != null) {
                     String[] s = line.split(",", -1);
-                    Donation don = new Donation(s[0], s[1], s[2], s[3], s[4], s[5], s[6]);
-                    for (Location location : locations) {
-                        if (location.getName().equals(don.getLocation())) {
-                            location.addDonation(don, null);
-                        }
-                    }
+                    Donation don = new Donation(s[1], s[2], s[3], s[4], s[5], s[6], s[7]);
+                    System.out.println("Jesting "+s[0]+" "+s[1]);
+                    locations.get(Integer.parseInt(s[0]) - 1).addDonation(don, null);
                 }
             }
 
