@@ -13,14 +13,6 @@ import edu.gatech.cs2340.youngmoney.model.Donation;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.model.Model;
 
-/**
- * Creates new donation with attributes:
- * item, user, date, description, value, category
- *
- * Donation is added to a location.
- */
-
-
 public class NewDonationActivity extends Activity {
 
     private Location location;

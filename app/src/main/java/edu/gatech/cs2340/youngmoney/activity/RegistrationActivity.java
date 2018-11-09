@@ -24,14 +24,6 @@ import edu.gatech.cs2340.youngmoney.model.Model;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
 
-/**
- * Allows person to create a new account on the app.
- * Requires name, username, and password.
- * Checks if input username and password are valid.
- * Alows user to exit/cancel.
- */
-
-
 public class RegistrationActivity extends Activity {
     private RegisterTask mRegisterTask = null;
 
