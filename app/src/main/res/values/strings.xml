@@ -11,7 +11,7 @@
     <string name="action_log_out">Log Out</string>
     <string name="action_map">View Map</string>
     <string name="error_invalid_username">This username is invalid</string>
-    <string name="error_invalid_password">This password incorrect</string>
+    <string name="error_invalid_password">This password is incorrect</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing username
