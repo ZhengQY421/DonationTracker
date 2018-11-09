@@ -22,6 +22,12 @@ import edu.gatech.cs2340.youngmoney.R;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.model.ModelLocations;
 
+
+/**
+ * Parses latitude and longitude from CSV and pins it on Google Maps.
+ * Displays location name and telephone number on the map pin.
+ *
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
