@@ -49,19 +49,37 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        locations = new ArrayList<>();
+        locations = modelLocations.get_current();
         donations = new ArrayList<>();
 
         recyclerView = findViewById(R.id.location_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        if (modelLocations.get_current() == null) {
-            loadCSV();
-            loadDonations();
+        if (locations == null) {
+
+            locations = new ArrayList<>();
+
+            Thread loadData = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    loadCSV();
+                    loadDonations();
+                }
+            });
+
+            loadData.start();
+
+            try{
+                loadData.join();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
+            modelLocations.set_current(locations);
         }
 
         searchMessage = findViewById(R.id.searchMessage);
-        searchView = findViewById(R.id.itemSearchLocation);
+        searchView = findViewById(R.id.itemSearchAllLocations);
 
 
         adapter = new SimpleLocationRecyclerViewAdapter(LocationActivity.this, modelLocations.get_current());

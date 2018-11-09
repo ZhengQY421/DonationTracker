@@ -14,6 +14,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 import edu.gatech.cs2340.youngmoney.R;
@@ -35,11 +37,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        locations = new ArrayList<>();
+        locations = modelLocations.get_current();
 
-        if (modelLocations.get_current() == null){
-            loadCSV();
+        if (locations == null){
+
+            locations = new ArrayList<>();
+
+            Thread loadData = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    loadCSV();
+                }
+            });
+
+            loadData.start();
+
+            try{
+                loadData.join();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
+            modelLocations.set_current(locations);
         }
+
+
     }
 
 
@@ -59,7 +81,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         CameraUpdate atl = CameraUpdateFactory.newLatLngZoom(new LatLng(33.7890, -84.3880), 11.0f);
         mMap.moveCamera(atl);
 
-
         for (Location loc: locations){
 
             String cord = loc.getCord();
@@ -74,17 +95,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void loadCSV() {
+
+        HttpURLConnection con;
+        String url = "https://www.ridgefieldttt.com/2340api.php?src=locations";
+
         try {
-            InputStreamReader is = new InputStreamReader(getAssets().open("LocationData.csv"));
-            BufferedReader reader = new BufferedReader(is);
-            reader.readLine();
-            String line;
-            while((line = reader.readLine()) != null) {
-                String[] s = line.split(",", -1);
-                Location loc = new Location(s[1],s[8],s[7], s[9], s[6], s[4], s[10], s[2], s[3], s[5]);
-                locations.add(loc);
+
+            URL myurl = new URL(url);
+            con = (HttpURLConnection) myurl.openConnection();
+
+            con.setRequestMethod("GET");
+
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+
+                String line;
+
+                while ((line = in.readLine()) != null) {
+                    String[] s = line.split(",", -1);
+                    Location loc = new Location(s[0],s[1],s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9]);
+                    locations.add(loc);
+                }
             }
-            modelLocations.set_current(locations);
-        } catch (IOException e) { }
+
+            con.disconnect();
+
+        } catch (IOException e) {
+            System.out.println("error");
+        }
     }
 }
