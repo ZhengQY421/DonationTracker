@@ -20,12 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Donation"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3" />
 
         <TextView
+            android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Item"
@@ -37,6 +39,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="User"
@@ -48,6 +51,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Location"
@@ -59,6 +63,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/textView20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Date"
@@ -70,6 +75,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/textView21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Full Description"
@@ -81,6 +87,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/textView22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Value"
@@ -92,6 +99,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/textView23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Category"
