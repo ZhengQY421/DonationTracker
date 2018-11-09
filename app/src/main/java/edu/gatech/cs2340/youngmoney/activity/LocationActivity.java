@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,13 +17,14 @@ import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class LocationActivity extends AppCompatActivity {
 
@@ -149,36 +149,65 @@ public class LocationActivity extends AppCompatActivity {
 
 
     private void loadCSV() {
+        HttpURLConnection con;
+        String url = "https://www.ridgefieldttt.com/2340api.php?src=locations";
+
         try {
-            InputStreamReader is = new InputStreamReader(getAssets().open("LocationData.csv"));
-            BufferedReader reader = new BufferedReader(is);
-            reader.readLine();
-            String line;
-            while((line = reader.readLine()) != null) {
-                String[] s = line.split(",", -1);
-                Location loc = new Location(s[1],s[8],s[7], s[9], s[6], s[4], s[10], s[2], s[3], s[5]);
-                locations.add(loc);
+
+            URL myurl = new URL(url);
+            con = (HttpURLConnection) myurl.openConnection();
+
+            con.setRequestMethod("GET");
+
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+
+                String line;
+
+                while ((line = in.readLine()) != null) {
+                    String[] s = line.split(",", -1);
+                    Location loc = new Location(s[0],s[1],s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9]);
+                    locations.add(loc);
+                }
             }
-            modelLocations.set_current(locations);
-        } catch (IOException e) { }
+
+            con.disconnect();
+
+        } catch (IOException e) {
+            System.out.println("error");
+        }
     }
 
     private void loadDonations() {
-        try {
-            FileInputStream fis = openFileInput("donations.csv");
-            DataInputStream reader = new DataInputStream(fis);
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] s = line.split(",", -1);
-                Donation don = new Donation(s[0], s[1], s[2], s[3], s[4], s[5], s[6]);
-                for (Location location : locations) {
-                    if (location.getName().equals(don.getLocation())) {
-                        location.addDonation(don, null);
+        HttpURLConnection con;
+        String url = "https://www.ridgefieldttt.com/2340api.php?src=donations";
 
+        try {
+
+            URL myurl = new URL(url);
+            con = (HttpURLConnection) myurl.openConnection();
+
+            con.setRequestMethod("GET");
+
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+
+                String line;
+
+                while ((line = in.readLine()) != null) {
+                    String[] s = line.split(",", -1);
+                    Donation don = new Donation(s[0], s[1], s[2], s[3], s[4], s[5], s[6]);
+                    for (Location location : locations) {
+                        if (location.getName().equals(don.getLocation())) {
+                            location.addDonation(don, null);
+                        }
                     }
                 }
             }
-        } catch (IOException e) {}
+
+            con.disconnect();
+
+        } catch (IOException e) {
+            System.out.println("error");
+        }
     }
 }
 
