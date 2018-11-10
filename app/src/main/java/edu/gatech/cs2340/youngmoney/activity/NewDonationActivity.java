@@ -49,20 +49,24 @@ public class NewDonationActivity extends Activity {
 
     private void newDonation() {
         EditText item = findViewById(R.id.item);
-        EditText user = findViewById(R.id.user);
-        EditText date = findViewById(R.id.date);
-        EditText fulldesc = findViewById(R.id.fulldesc);
-        EditText value = findViewById(R.id.value);
-        EditText category = findViewById(R.id.category);
-        location.addDonation(new Donation(item.getText().toString(),
-                date.getText().toString(),
-                location.getName(),
-                user.getText().toString(),
-                fulldesc.getText().toString(),
-                value.getText().toString(),
-                category.getText().toString()), this);
+        if (item.getText().equals("")) {
+            item.setError(getString(R.string.error_field_required));
+        } else {
+            EditText user = findViewById(R.id.user);
+            EditText date = findViewById(R.id.date);
+            EditText fulldesc = findViewById(R.id.fulldesc);
+            EditText value = findViewById(R.id.value);
+            EditText category = findViewById(R.id.category);
+            location.addDonation(new Donation(item.getText().toString(),
+                    date.getText().toString(),
+                    location.getName(),
+                    user.getText().toString(),
+                    fulldesc.getText().toString(),
+                    value.getText().toString(),
+                    category.getText().toString()), this);
 
-        Intent intent = new Intent(this, LocationActivity.class);
-        startActivity(intent);
+            Intent intent = new Intent(this, LocationActivity.class);
+            startActivity(intent);
+        }
     }
 }
