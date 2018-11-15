@@ -18,8 +18,8 @@ public class Location implements Serializable {
     private ArrayList<Donation> donations;
 
 
-    public Location (String name, String type, String zip, String phone, String state, String address, String website, String lat, String lng, String city) {
-
+    public Location (String id, String name, String type, String zip, String phone, String state, String address, String website, String lat, String lng, String city) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.phone = phone;
@@ -29,6 +29,7 @@ public class Location implements Serializable {
         this.donations = new ArrayList<>();
 
     }
+    public String getId() { return id; }
     public String getName() {
         return name;
     }
