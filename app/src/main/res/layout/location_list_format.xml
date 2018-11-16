@@ -10,7 +10,7 @@
         android:layout_height="90dp"
         android:layout_weight="4"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp" />
 
 </LinearLayout>
