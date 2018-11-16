@@ -36,6 +36,7 @@ public class RegistrationActivity extends Activity {
 
     private EditText mUsernameView;
     private EditText mPasswordView;
+    private Spinner spinner;
     private View mRegistrationFormView;
     private View mProgressView;
     private final String USER_AGENT = "Mozilla/5.0";
@@ -45,7 +46,7 @@ public class RegistrationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
 
         // spinner.setOnItemSelectedListener(this);
 
@@ -89,6 +90,7 @@ public class RegistrationActivity extends Activity {
         // Store values at the time of the login attempt.
         String username = mUsernameView.getText().toString();
         String password = mPasswordView.getText().toString();
+        String type = spinner.getSelectedItem().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -114,7 +116,7 @@ public class RegistrationActivity extends Activity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mRegisterTask = new RegisterTask(username, password, this);
+            mRegisterTask = new RegisterTask(username, password, type, this);
             mRegisterTask.execute((Void) null);
         }
     }
@@ -158,11 +160,13 @@ public class RegistrationActivity extends Activity {
 
         private final String mUsername;
         private final String mPassword;
+        private final String mType;
         private final RegistrationActivity activity;
 
-        RegisterTask(String username, String password, RegistrationActivity activity) {
+        RegisterTask(String username, String password, String type, RegistrationActivity activity) {
             mUsername = username;
             mPassword = password;
+            mType = type;
             this.activity = activity;
         }
 
@@ -172,7 +176,7 @@ public class RegistrationActivity extends Activity {
 
             try {
                 String url = "https://ridgefieldttt.com/2340api.php";
-                String urlParameters = "dest=register&user="+mUsername+"&pass="+mPassword;
+                String urlParameters = "dest=register&user="+mUsername+"&pass="+mPassword+"&type="+mType;
                 URL obj = new URL(url);
                 HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
