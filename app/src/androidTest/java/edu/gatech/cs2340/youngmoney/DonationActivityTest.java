@@ -6,31 +6,19 @@ package edu.gatech.cs2340.youngmoney;
 
 
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.onData;
-import static android.support.test.espresso.action.ViewActions.clearText;
-import static android.support.test.espresso.intent.Intents.intended;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.toPackage;
 import static android.support.test.espresso.matcher.ViewMatchers.hasErrorText;
-import static android.support.test.espresso.matcher.ViewMatchers.withSpinnerText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.contrib.RecyclerViewActions;
-import static org.hamcrest.Matchers.startsWith;
-
-
+import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 
 import org.junit.Rule;
 import org.junit.Test;
 
-import edu.gatech.cs2340.youngmoney.activity.HomeActivity;
 import edu.gatech.cs2340.youngmoney.activity.LocationActivity;
-import edu.gatech.cs2340.youngmoney.activity.NewDonationActivity;
-
 
 public class DonationActivityTest {
 
@@ -44,7 +32,6 @@ public class DonationActivityTest {
     public void checkAddDonation() {
         //onView(withSpinnerText(startsWith("AFD"))).perform(click());
         onView(withId(R.id.location_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
-        onView(withId(R.id.location_list)).perform(click());
         onView(withId(R.id.buttonDonation)).perform(click());
 
         //Test when both fields are empty

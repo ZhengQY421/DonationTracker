@@ -3,6 +3,7 @@ package edu.gatech.cs2340.youngmoney.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,7 +61,7 @@ public class NewDonationActivity extends Activity {
 
     private void newDonation() {
         EditText item = findViewById(R.id.item);
-        if (item.getText().equals("")) {
+        if (TextUtils.isEmpty(item.getText().toString())) {
             item.setError(getString(R.string.error_field_required));
         } else {
             EditText user = findViewById(R.id.user);
