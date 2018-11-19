@@ -49,7 +49,7 @@ public class DonationActivityTest {
         onView(withId(R.id.user)).perform(typeText("Big Man"), closeSoftKeyboard());
         onView(withId(R.id.date)).perform(typeText("11/9/18"), closeSoftKeyboard());
         onView(withId(R.id.fulldesc)).perform(typeText("Super nice dog"), closeSoftKeyboard());
-        onView(withId(R.id.value)).perform(typeText("$12"), closeSoftKeyboard());
+        onView(withId(R.id.value)).perform(typeText("13"), closeSoftKeyboard());
         onView(withId(R.id.category)).perform(typeText("Animal"), closeSoftKeyboard());
 
         //Test when everything correct
