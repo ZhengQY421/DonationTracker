@@ -1,6 +1,6 @@
 /**
  * @author: John Thompson
- * @decription: Tests LoginActivity
+ * @decription: Tests DonationActivity
  */
 package edu.gatech.cs2340.youngmoney;
 
@@ -37,11 +37,10 @@ public class DonationActivityTest {
      */
     @Test
     public void checkAddDonation() {
-        //onView(withSpinnerText(startsWith("AFD"))).perform(click());
         onView(withId(R.id.location_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         onView(withId(R.id.buttonDonation)).perform(click());
 
-        //Test when both fields are empty
+        //Test when field is empty
         onView(withId(R.id.create)).perform(click());
         onView(withId(R.id.item)).check(matches(hasErrorText("This field is required")));
 
