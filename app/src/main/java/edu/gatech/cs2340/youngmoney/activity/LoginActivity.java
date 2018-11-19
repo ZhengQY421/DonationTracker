@@ -340,12 +340,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
                 in.close();
 
-                //print result
-                System.out.println("crawlin back to you" + response.toString());
 
                 return (response.toString().equals("true"));
             } catch (Exception e) {
-                System.out.println("I hate this life " + e.toString());
                 return null;
             }
         }

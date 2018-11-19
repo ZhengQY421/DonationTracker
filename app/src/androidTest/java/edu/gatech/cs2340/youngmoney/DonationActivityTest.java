@@ -18,7 +18,7 @@ import static android.support.test.espresso.intent.matcher.IntentMatchers.toPack
 import static android.support.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static android.support.test.espresso.matcher.ViewMatchers.withSpinnerText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.contrib.RecyclerViewActions;
+import android.support.test.espresso.contrib.RecyclerViewActions;
 import static org.hamcrest.Matchers.startsWith;
 
 
