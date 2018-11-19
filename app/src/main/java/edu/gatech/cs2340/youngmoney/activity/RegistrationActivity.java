@@ -6,6 +6,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.os.Bundle;
 import android.app.Activity;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import android.text.TextUtils;
@@ -20,6 +25,8 @@ import android.widget.EditText;
 import android.content.Intent;
 import android.view.View.OnClickListener;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import edu.gatech.cs2340.youngmoney.model.Model;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
@@ -29,15 +36,17 @@ public class RegistrationActivity extends Activity {
 
     private EditText mUsernameView;
     private EditText mPasswordView;
+    private Spinner spinner;
     private View mRegistrationFormView;
     private View mProgressView;
+    private final String USER_AGENT = "Mozilla/5.0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
 
         // spinner.setOnItemSelectedListener(this);
 
@@ -81,6 +90,7 @@ public class RegistrationActivity extends Activity {
         // Store values at the time of the login attempt.
         String username = mUsernameView.getText().toString();
         String password = mPasswordView.getText().toString();
+        String type = spinner.getSelectedItem().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -106,7 +116,7 @@ public class RegistrationActivity extends Activity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mRegisterTask = new RegisterTask(username, password, this);
+            mRegisterTask = new RegisterTask(username, password, type, this);
             mRegisterTask.execute((Void) null);
         }
     }
@@ -150,11 +160,13 @@ public class RegistrationActivity extends Activity {
 
         private final String mUsername;
         private final String mPassword;
+        private final String mType;
         private final RegistrationActivity activity;
 
-        RegisterTask(String username, String password, RegistrationActivity activity) {
+        RegisterTask(String username, String password, String type, RegistrationActivity activity) {
             mUsername = username;
             mPassword = password;
+            mType = type;
             this.activity = activity;
         }
 
@@ -163,13 +175,47 @@ public class RegistrationActivity extends Activity {
             // TODO: attempt authentication against a network service.
 
             try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+                String url = "https://ridgefieldttt.com/2340api.php";
+                String urlParameters = "dest=register&user="+mUsername+"&pass="+mPassword+"&type="+mType;
+                URL obj = new URL(url);
+                HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+
+                //add reuqest header
+                con.setRequestMethod("POST");
+                con.setRequestProperty("User-Agent", USER_AGENT);
+                con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+
+                // Send post request
+                con.setDoOutput(true);
+                DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(urlParameters);
+                wr.flush();
+                wr.close();
+
+                int responseCode = con.getResponseCode();
+                System.out.println("\nSending 'POST' request to URL : " + url);
+                System.out.println("Post parameters : " + urlParameters);
+                System.out.println("Response Code : " + responseCode);
+
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(con.getInputStream()));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                //print result
+                System.out.println("crawlin back to you" + response.toString());
+
+                return (response.toString().equals("true"));
+            } catch (Exception e) {
+                System.out.println("I hate this life " + e.toString());
+                return null;
             }
 
-            return true;
         }
 
         @Override

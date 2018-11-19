@@ -3,7 +3,7 @@
  * @decription: SelectActivity Tests
  */
 package edu.gatech.cs2340.youngmoney;
- import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;

@@ -13,10 +13,21 @@ import edu.gatech.cs2340.youngmoney.model.Donation;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.model.Model;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOError;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import android.os.AsyncTask;
+
+import javax.net.ssl.HttpsURLConnection;
+
 public class NewDonationActivity extends Activity {
 
     private Location location;
     private Model model = Model.get_instance();
+    private final String USER_AGENT = "Mozilla/5.0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +76,73 @@ public class NewDonationActivity extends Activity {
                     value.getText().toString(),
                     category.getText().toString()), this);
 
+            new SendGarbageTask().execute(item.getText().toString(), date.getText().toString(), user.getText().toString(), fulldesc.getText().toString(), value.getText().toString(), category.getText().toString());
+
             Intent intent = new Intent(this, LocationActivity.class);
             startActivity(intent);
+        }
+    }
+
+    class SendGarbageTask extends AsyncTask<String, Void, String> {
+
+        private Exception exception;
+
+        protected String doInBackground(String... params) {
+            try {
+                String url = "https://ridgefieldttt.com/2340api.php";
+                String urlParameters = "dest=donations&locid="+location.getId()+"&item="+params[0]
+                        +"&date="+params[1]
+                        +"&location="+location.getName()
+                        +"&user="+params[2]
+                        +"&fulldesc="+params[3]
+                        +"&value="+params[4]
+                        +"&category="+params[5];
+                URL obj = new URL(url);
+                HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+
+                //add reuqest header
+                con.setRequestMethod("POST");
+                con.setRequestProperty("User-Agent", USER_AGENT);
+                con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+
+                // Send post request
+                con.setDoOutput(true);
+                DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(urlParameters);
+                wr.flush();
+                wr.close();
+
+                int responseCode = con.getResponseCode();
+                System.out.println("\nSending 'POST' request to URL : " + url);
+                System.out.println("Post parameters : " + urlParameters);
+                System.out.println("Response Code : " + responseCode);
+
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(con.getInputStream()));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                //print result
+                System.out.println(response.toString());
+
+                return response.toString();
+            } catch (Exception e) {
+                this.exception = e;
+                System.out.println("I hate this life " + e.toString());
+                return null;
+            }
+        }
+
+        protected void onPostExecute(String swag) {
+            // TODO: check this.exception
+            // TODO: do something with the feed
+
+            System.out.println(" I love swag. "+swag);
         }
     }
 }

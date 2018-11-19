@@ -46,7 +46,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:text="Address: "
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="44dp"
                 android:text="Phone Number:"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -102,7 +102,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="42dp"
                 android:text="Website"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -123,7 +123,7 @@
                 android:layout_alignStart="@+id/loc_detail_name"
                 android:layout_below="@+id/loc_detail_web"
                 android:text="Donations"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
