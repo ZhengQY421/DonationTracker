@@ -44,10 +44,8 @@ public class LoginActivityTest {
 
         //Test when invalid user name
         onView(withId(R.id.username)).perform(typeText("Pika"), closeSoftKeyboard());
-        onView(withId(R.id.password)).perform(typeText("pass"), closeSoftKeyboard());
         onView(withId(R.id.username_sign_in_button)).perform(click());
-        onView(withId(R.id.password)).check(matches(hasErrorText("This password is incorrect")));
-        onView(withId(R.id.password)).perform(clearText());
+        onView(withId(R.id.username)).check(matches(hasErrorText("This username is invalid")));
         onView(withId(R.id.username)).perform(clearText());
 
         //Test when empty password field
@@ -64,5 +62,7 @@ public class LoginActivityTest {
         //Test when everything correct
         onView(withId(R.id.password)).perform(typeText("pass"), closeSoftKeyboard());
         onView(withId(R.id.username_sign_in_button)).perform(click());
+        //TODO: Figure out how to check correct intent
+        //intended(toPackage("edu.gatech.cs2340.youngmoney.activity"));
     }
 }

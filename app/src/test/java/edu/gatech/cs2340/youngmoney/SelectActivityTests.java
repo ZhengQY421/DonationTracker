@@ -3,7 +3,7 @@
  * @decription: SelectActivity Tests
  */
 package edu.gatech.cs2340.youngmoney;
-import static android.support.test.espresso.Espresso.onView;
+ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
@@ -21,11 +21,11 @@ import org.junit.Test;
 import edu.gatech.cs2340.youngmoney.activity.LoginActivity;
 import edu.gatech.cs2340.youngmoney.activity.RegistrationActivity;
  public class SelectActivityTests {
-     
-    /*
      @Rule
     public ActivityTestRule<RegistrationActivity> mActivityRule = new ActivityTestRule<>(RegistrationActivity.class);
-
+     /**
+     * Tests if user selects sign-in or register
+     */
     @Test
     public void checkRegister() {
          //Test when both fields are empty
@@ -41,18 +41,5 @@ import edu.gatech.cs2340.youngmoney.activity.RegistrationActivity;
         onView(withId(R.id.Password)).perform(typeText("word"), closeSoftKeyboard());
          //Test when everything correct
         onView(withId(R.id.SignUpButton)).perform(click());
-    } */
-
-
-    private Model model;
-    private Location location1;
-    private Location location2;
-    private Location location3;
-
-    @Before
-    public void setUp() {
-        model = Model.getInstance();
-        model.clear();
     }
-
 }
