@@ -12,8 +12,15 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
+import android.support.test.espresso.NoMatchingViewException;
+import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -47,5 +54,27 @@ public class DonationActivityTest {
 
         //Test when everything correct
         onView(withId(R.id.create)).perform(click());
+        onView(withId(R.id.location_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.donations)).check(new RecyclerViewItemCountAssertion(1));
     }
+
+    public class RecyclerViewItemCountAssertion implements ViewAssertion {
+        private final int expectedCount;
+
+        public RecyclerViewItemCountAssertion(int expectedCount) {
+            this.expectedCount = expectedCount;
+        }
+
+        @Override
+        public void check(View view, NoMatchingViewException noViewFoundException) {
+            if (noViewFoundException != null) {
+                throw noViewFoundException;
+            }
+
+            RecyclerView recyclerView = (RecyclerView) view;
+            RecyclerView.Adapter adapter = recyclerView.getAdapter();
+            assertThat(adapter.getItemCount(), is(expectedCount));
+        }
+    }
+
 }
