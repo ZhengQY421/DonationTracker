@@ -29,25 +29,58 @@ public class Location implements Serializable {
         this.donations = new ArrayList<>();
 
     }
+    /**
+     * getter for id
+     * @return id
+     */
     public String getId() { return id; }
+
+    /**
+     * getter for name
+     * @return name
+     */
     public String getName() {
         return name;
     }
+    /**
+     * getter for type
+     * @return type
+     */
     public String getType() {
         return type;
     }
+    /**
+     * getter for phone
+     * @return phone
+     */
     public String getPhone() {
         return phone;
     }
+    /**
+     * getter for address
+     * @return address
+     */
     public String getAddress() {
         return address;
     }
+    /**
+     * getter for website
+     * @return website
+     */
     public  String getWebsite () {
         return website;
     }
+    /**
+     * getter for coordinates
+     * @return coordinates
+     */
     public String getCord () {
         return  cord;
     }
+    /**
+     * getter for donations
+     * @return donations
+     */
     public ArrayList<Donation> getDonations() {
         return donations;
     }
@@ -65,6 +98,29 @@ public class Location implements Serializable {
             } catch (IOException exception) {
             }
         }
+    }
+    /**
+     * equals method to test if two locations are equal
+     * @param o object to be tested
+     * @return boolean of if locations are found to be equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(o == null) {
+            return false;
+        }
+        if(o == this){
+            return true;
+        }
+
+        if(!(o instanceof Location)) {
+            return false;
+        }
+        Location loc = (Location) o;
+        // didnt want to individually check all attributes
+        // if the string reprs are the same, all is the same
+        return this.id == loc.getId();
+
     }
 }
 
