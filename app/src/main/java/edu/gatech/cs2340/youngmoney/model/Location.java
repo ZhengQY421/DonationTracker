@@ -118,8 +118,12 @@ public class Location implements Serializable {
         }
         Location loc = (Location) o;
         // didnt want to individually check all attributes
-        // if the string reprs are the same, all is the same
-        return this.id == loc.getId();
+        // if the id reprs are the same, all is the same
+        if (this.id.equals(((Location) o).getId())) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 }
