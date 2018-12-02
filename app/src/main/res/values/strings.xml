@@ -26,4 +26,6 @@
     <string name="search_all_donations">Search All Donations</string>
     <string name="title_activity_maps">Map</string>
 
+    <string name="action_settings">Settings</string>
+
 </resources>

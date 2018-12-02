@@ -1,13 +1,23 @@
 package edu.gatech.cs2340.youngmoney.activity;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+
+import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
 
 import edu.gatech.cs2340.youngmoney.R;
 import edu.gatech.cs2340.youngmoney.model.Donation;
@@ -53,6 +63,34 @@ public class NewDonationActivity extends Activity {
                 newDonation();
             }
         });
+
+        /*
+        String tittle="Young Money";
+        String subject="New Donation at " + location.getName();
+        String body= "Click to check";
+
+        NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notify=new Notification.Builder
+                (getApplicationContext()).setContentTitle(tittle).setContentText(body).
+                setContentTitle(subject).setSmallIcon(R.drawable.abc).build();
+
+        notify.flags |= Notification.FLAG_AUTO_CANCEL;
+        notif.notify(0, notify); */
+
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.abc)
+                        .setContentTitle("Young Money App")
+                        .setContentText("New Donation at " + location.getName());
+
+        Intent notificationIntent = new Intent(this, NewDonationActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        // Add as notification
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(0, builder.build());
     }
 
     private void cancel() {
@@ -76,6 +114,8 @@ public class NewDonationActivity extends Activity {
                     fulldesc.getText().toString(),
                     value.getText().toString(),
                     category.getText().toString()), this);
+
+
 
             new SendGarbageTask().execute(item.getText().toString(), date.getText().toString(), user.getText().toString(), fulldesc.getText().toString(), value.getText().toString(), category.getText().toString());
 
