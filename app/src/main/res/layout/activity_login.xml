@@ -96,4 +96,28 @@
         android:layout_marginTop="135dp"
         android:src="@mipmap/ic_launcher_foreground" />
 
+    <Button
+        android:id="@+id/social_sign_in_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="103dp"
+        android:background="#FFFFFF"
+        android:text="Sign In With Social Media"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="236dp"
+        android:text="- OR - "
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

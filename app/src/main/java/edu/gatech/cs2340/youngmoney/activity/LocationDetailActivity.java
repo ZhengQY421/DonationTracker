@@ -155,32 +155,6 @@ public class LocationDetailActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        direction = findViewById(R.id.direction);
-        direction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (ContextCompat.checkSelfPermission( LocationDetailActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
-
-                    requestPermission();
-                }
-
-                final AlertDialog.Builder builder = new AlertDialog.Builder(LocationDetailActivity.this);
-                builder.setMessage("Open Google Maps?").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-
-
-            }
-        });
-
-
-
-
     }
 
 
