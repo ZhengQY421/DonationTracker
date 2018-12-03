@@ -1,81 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2196F3"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".RegistrationActivity">
+    tools:context="activity.RegistrationActivity">
 
     <!-- Registration progress -->
     <ProgressBar
         android:id="@+id/registration_progress"
-        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <ScrollView
+    <RelativeLayout
         android:id="@+id/registration_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
             android:id="@+id/registration_form_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Thanks for trying to join the best app in the game, Young Money. Here you will register yourself and everyone will be proud of you." />
+                android:layout_height="113dp"
+                android:text="Thanks for trying to join the best app in the game, Young Money. Here you will register yourself and everyone, and I mean everyone, will be proud of you."
+                android:textColor="#FFFFFF"
+                android:textSize="16dp" />
 
             <EditText
                 android:id="@+id/Name"
+                style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Name"
                 android:inputType="textPersonName"
-                android:hint="Name" />
+                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/Username"
+                style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Username"
                 android:inputType="textPersonName"
-                android:hint="Username" />
+                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Password"
                 android:inputType="textPassword"
-                android:hint="Password" />
+                android:textColor="#FFFFFF" />
 
             <TextView
-              android:id="@+id/spinnerLabel"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="Account Type"/>
+                android:id="@+id/spinnerLabel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                android:text="Account Type"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textColor="#FFFFFF" />
+
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/SignUpButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign Up!!!!!!!!!!!!!!!!" />
-            </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+                android:layout_marginTop="30dp"
+                android:background="#FFFFFF"
+                android:text="Sign Up" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

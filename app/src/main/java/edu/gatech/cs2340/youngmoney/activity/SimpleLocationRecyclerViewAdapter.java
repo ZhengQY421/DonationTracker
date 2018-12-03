@@ -18,10 +18,10 @@ import edu.gatech.cs2340.youngmoney.model.Model;
 public class SimpleLocationRecyclerViewAdapter  extends RecyclerView.Adapter<SimpleLocationRecyclerViewAdapter.ViewHolder> {
 
 
-    private final List<Location> locations;
+    private final List locations;
     private Context context;
 
-    public SimpleLocationRecyclerViewAdapter(Context c, List<Location> locs) {
+    public SimpleLocationRecyclerViewAdapter(Context c, List locs) {
         context = c;
         locations = locs;
     }
@@ -39,7 +39,7 @@ public class SimpleLocationRecyclerViewAdapter  extends RecyclerView.Adapter<Sim
     @Override
     public void onBindViewHolder(final ViewHolder holder, int index) {
 
-        holder.loc = locations.get(index);
+        holder.loc = (Location)locations.get(index);
         holder.locView.setText(""+holder.loc.getName());
 
         holder.view.setOnClickListener(new View.OnClickListener() {

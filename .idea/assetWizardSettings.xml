@@ -34,8 +34,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="48a3f6" />
+                                      <entry key="backgroundColor" value="009fff" />
                                       <entry key="foregroundImage" value="$PROJECT_DIR$/App-Logo.png" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
+                                      <entry key="webIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -117,7 +117,7 @@ public class NewDonationActivity extends Activity {
 
 
 
-            new SendGarbageTask().execute(item.getText().toString(), date.getText().toString(), user.getText().toString(), fulldesc.getText().toString(), value.getText().toString(), category.getText().toString());
+            new SendGarbageTask().execute(item.getText().toString(), date.getText().toString(), user.getText().toString(), fulldesc.getText().toString(), value.getText().toString(), category.getText().toString(),location.getName().toString());
 
             Intent intent = new Intent(this, LocationActivity.class);
             startActivity(intent);
@@ -130,10 +130,11 @@ public class NewDonationActivity extends Activity {
 
         protected String doInBackground(String... params) {
             try {
+                System.out.println(params[6]);
                 String url = "https://ridgefieldttt.com/2340api.php";
                 String urlParameters = "dest=donations&locid="+location.getId()+"&item="+params[0]
                         +"&date="+params[1]
-                        +"&location="+location.getName()
+                        +"&location="+params[6]
                         +"&user="+params[2]
                         +"&fulldesc="+params[3]
                         +"&value="+params[4]
