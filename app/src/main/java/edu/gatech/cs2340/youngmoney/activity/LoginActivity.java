@@ -394,16 +394,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                failedLoginAttempts = 0;
                 Intent intent = new Intent(activity, HomeActivity.class);
                 startActivity(intent);
                 finish();
 
-            } else if (failedLoginAttempts >= 3) {
+            } else if (failedLoginAttempts >= 2) {
                 ((Button) findViewById(R.id.username_sign_in_button)).setVisibility(View.INVISIBLE);
             } else {
                 failedLoginAttempts += 1;
-                if (failedLoginAttempts > 3) {
-                    mPasswordView.setError("Too many login attempts dude");
+                if (failedLoginAttempts >= 3) {
+                    mPasswordView.setError("Too many attempts");
                 } else {
                     mPasswordView.setError(getString(R.string.error_incorrect_password));
                     mPasswordView.requestFocus();
