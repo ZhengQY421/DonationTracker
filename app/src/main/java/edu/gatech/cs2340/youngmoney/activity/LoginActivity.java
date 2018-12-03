@@ -52,6 +52,10 @@ import edu.gatech.cs2340.youngmoney.R;
 import static android.Manifest.permission.READ_CONTACTS;
 import static edu.gatech.cs2340.youngmoney.activity.SelectActivity.failedLoginAttempts;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
+
 
 /**
  * A login screen that offers login via username/password.
@@ -130,6 +134,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+
+        Button mSocialMediaSignInButton = findViewById(R.id.social_sign_in_button);
+        mSocialMediaSignInButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent social = new Intent(LoginActivity.this, SocialLoginActivity.class);
+                startActivity(social);
             }
         });
 
