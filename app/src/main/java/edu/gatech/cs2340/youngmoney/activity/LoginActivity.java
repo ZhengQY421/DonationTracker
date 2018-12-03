@@ -214,7 +214,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Check for a valid username
         else */
 
-        if (TextUtils.isEmpty(username)) {
+        if (username.equals("guest") && TextUtils.isEmpty(password)) {
+
+        }
+        else if (TextUtils.isEmpty(username)) {
             mUsernameView.setError(getString(R.string.error_field_required));
             focusView = mUsernameView;
             cancel = true;
@@ -234,8 +237,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(username, password, this);
-            mAuthTask.execute((Void) null);
+            if (username.equals("guest") && TextUtils.isEmpty(password)) {
+                mAuthTask = new UserLoginTask("user", "pass", this);
+                mAuthTask.execute((Void) null);
+            } else {
+                mAuthTask = new UserLoginTask(username, password, this);
+                mAuthTask.execute((Void) null);
+            }
         }
     }
 
