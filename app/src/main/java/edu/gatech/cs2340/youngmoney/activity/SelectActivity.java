@@ -32,6 +32,7 @@ public class SelectActivity extends AppCompatActivity {
         });
     }
 
+    public static int failedLoginAttempts = 0;
     private void login() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
