@@ -3,7 +3,10 @@ package edu.gatech.cs2340.youngmoney.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -47,6 +50,8 @@ import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
+import static edu.gatech.cs2340.youngmoney.activity.SelectActivity.failedLoginAttempts;
+
 
 /**
  * A login screen that offers login via username/password.
@@ -77,6 +82,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mLoginFormView;
     private View mImageView;
     private final String USER_AGENT = "Mozilla/5.0";
+
+    /*
+    // Initiate the preference with Preference Filename and Access Mode for other Apps
+
+    SharedPreferences pref = this.getSharedPreferences("LoginTrack", Context.MODE_PRIVATE); // "LoginTrack" is the preference Name
+    SharedPreferences.Editor editor = pref.edit();
+// read the preference
+    String Attempts= pref.getString("MaxAttempts", "");
+    editor.putString("MaxAttempts", "5").commit();*/
+
+    /*
+    SharedPreferences pref = this.getSharedPreferences("Sample", Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = pref.edit();
+    editor.putInt("ATTEMPTs", "5");
+    editor.putString("ATTEMPT_Time", System.currentTimeMillis());
+    editor.commit();
+    */
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,6 +186,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * If there are form errors (invalid username, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
+
+
     private void attemptLogin() {
         if (mAuthTask != null) {
             return;
@@ -177,13 +204,23 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         boolean cancel = false;
         View focusView = null;
 
+        /*
+        if (failedLoginAttempts >= 0) {
+            mUsernameView.setError("Too many failed attempts");
+            mPasswordView.setError("Too many failed attempts");
+            cancel = true;
+        }
+
         // Check for a valid username
+        else */
+
         if (TextUtils.isEmpty(username)) {
             mUsernameView.setError(getString(R.string.error_field_required));
             focusView = mUsernameView;
             cancel = true;
         } else if (TextUtils.isEmpty(password)) {
-            mPasswordView.setError("This field is required");
+            //mPasswordView.setError("This field is required");
+            mPasswordView.setError(Integer.toString(failedLoginAttempts));
             focusView = mPasswordView;
             cancel = true;
         }
@@ -191,6 +228,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
+            failedLoginAttempts += 1;
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
@@ -372,9 +410,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Intent intent = new Intent(activity, HomeActivity.class);
                 startActivity(intent);
                 finish();
+
+            } else if (failedLoginAttempts >= 3) {
+                ((Button) findViewById(R.id.username_sign_in_button)).setVisibility(View.INVISIBLE);
             } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
+                failedLoginAttempts += 1;
+                if (failedLoginAttempts > 3) {
+                    mPasswordView.setError("Too many login attempts dude");
+                } else {
+                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    mPasswordView.requestFocus();
+                }
             }
         }
 
