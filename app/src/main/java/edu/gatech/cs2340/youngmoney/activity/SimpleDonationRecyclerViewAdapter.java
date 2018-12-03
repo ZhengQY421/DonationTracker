@@ -20,17 +20,25 @@ public class SimpleDonationRecyclerViewAdapter extends RecyclerView.Adapter<Simp
 
     private final List<Donation> donations;
     private Context context;
+    private boolean white;
 
-    public SimpleDonationRecyclerViewAdapter(Context c, List<Donation> d) {
+    public SimpleDonationRecyclerViewAdapter(Context c, List<Donation> d, boolean w) {
         context = c;
         donations = d;
+        white = w;
     }
 
     @NonNull
     @Override
     public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int index) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.location_list_format, parent, false);
+        View view;
+
+        if (white){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.donation_item_format_white, parent, false);
+        }else{
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.donation_item_format, parent, false);
+        }
 
         return new SimpleDonationRecyclerViewAdapter.ViewHolder(view);
     }
@@ -71,7 +79,11 @@ public class SimpleDonationRecyclerViewAdapter extends RecyclerView.Adapter<Simp
         public ViewHolder(View view) {
             super(view);
             this.view = view;
-            locView = (TextView) view.findViewById(R.id.location);
+            if(white){
+                locView = view.findViewById(R.id.donation2);
+            } else {
+                locView = (TextView) view.findViewById(R.id.donation);
+            }
         }
 
         @Override

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="bold"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -9,6 +10,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:textAlignment="center"
+    android:background="#2196F3"
     tools:context=".activity.LoginActivity">
 
     <!-- Login progress -->
@@ -35,26 +38,41 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome to Young Money!" />
+                android:fontFamily="@font/cabin"
+                android:text="Welcome \nto \nYoung Money!"
+                android:textAppearance="@android:style/TextAppearance.Material.Display4"
+                android:textColor="#FFFFFF"
+                android:textSize="85sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/locations_button"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/action_locations" />
+                android:layout_marginTop="20dp"
+                android:layout_weight="2"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/action_locations"
+                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/map_button"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/action_map" />
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/action_map"
+                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/log_out_button"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#fc3a33"
                 android:text="@string/action_log_out"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
         </LinearLayout>

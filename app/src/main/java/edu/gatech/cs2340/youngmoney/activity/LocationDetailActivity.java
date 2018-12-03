@@ -31,6 +31,7 @@ import edu.gatech.cs2340.youngmoney.model.Donation;
 import edu.gatech.cs2340.youngmoney.model.Model;
 import edu.gatech.cs2340.youngmoney.model.Location;
 import edu.gatech.cs2340.youngmoney.R;
+import edu.gatech.cs2340.youngmoney.model.ModelDonation;
 
 public class LocationDetailActivity extends AppCompatActivity {
 
@@ -44,6 +45,9 @@ public class LocationDetailActivity extends AppCompatActivity {
     private boolean categorySearch = false;
     private String searchText = "";
     private TextView searchMessage;
+    private ArrayList<Donation> donations;
+    private RecyclerView donationList;
+    private SimpleDonationRecyclerViewAdapter donationAdapter;
 
     private List<Donation> searchResults = new ArrayList<Donation>();
 
@@ -86,11 +90,17 @@ public class LocationDetailActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.donations);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-
-        updateSearchResults();
-        adapter = new SimpleDonationRecyclerViewAdapter(LocationDetailActivity.this, searchResults);
+        //updateSearchResults();
+        adapter = new SimpleDonationRecyclerViewAdapter(LocationDetailActivity.this, searchResults,false);
         recyclerView.setAdapter(adapter);
 
+        donations = loc.getDonations();
+
+        donationList = findViewById(R.id.existing_donations);
+        donationList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        donationAdapter = new SimpleDonationRecyclerViewAdapter(LocationDetailActivity.this, donations, true);
+        donationList.setAdapter(donationAdapter);
 
         Spinner spinner = (Spinner) findViewById(R.id.searchSpinner);
 
@@ -140,7 +150,7 @@ public class LocationDetailActivity extends AppCompatActivity {
 
         if (searchText.equals("")) {
             Log.i("foopie", "fooping");
-            searchResults.addAll(loc.getDonations());
+            searchResults.clear();
             return;
         }
         for (Donation donation : loc.getDonations()) {

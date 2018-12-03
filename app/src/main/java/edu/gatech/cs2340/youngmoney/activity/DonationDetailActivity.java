@@ -20,7 +20,7 @@ public class DonationDetailActivity extends Activity {
 
         donation = model.get_current();
 
-        TextView item = findViewById(R.id.item);
+        TextView item = findViewById(R.id.donation_title);
         item.setText(donation.getItem());
 
         TextView user = findViewById(R.id.user);

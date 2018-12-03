@@ -2,170 +2,216 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#2196F3">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#2196F3">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/loc_detail_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
                 android:layout_marginStart="0dp"
                 android:fontFamily="@font/cabin"
+                android:gravity="center"
                 android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#FFFFFF"
                 android:textSize="36sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
 
             <TextView
                 android:id="@+id/loc_detail_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/loc_detail_name"
-                android:layout_alignStart="@+id/loc_detail_name"
-                android:layout_alignEnd="@+id/loc_detail_name"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="142dp" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/loc_detail_type"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:text="Address: "
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/loc_detail_addr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView4"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="10dp"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/loc_detail_coord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/loc_detail_addr"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="2dp"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/loc_detail_coord"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="44dp"
-                android:text="Phone Number:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/loc_detail_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView7"
-                android:layout_alignStart="@+id/loc_detail_name"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="11dp"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/loc_detail_phone"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="42dp"
-                android:text="Website"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/loc_detail_web"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView9"
-                android:layout_alignStart="@+id/loc_detail_name"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="11dp"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/loc_detail_name"
-                android:layout_below="@+id/loc_detail_web"
-                android:text="Donations"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/buttonDonation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/loc_detail_name"
-                android:layout_below="@+id/donations"
-                android:text="New Donation" />
-
-
-            <Spinner
-                android:id="@+id/searchSpinner"
-                android:layout_width="match_parent"
-                android:layout_below="@+id/textView3"
-                android:layout_height="wrap_content" />
-
-
-            <SearchView
-                android:id="@+id/itemSearchLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/searchSpinner"
-                android:layout_alignParentStart="true"></SearchView>
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="type"
+                android:textColor="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/searchMessage"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/itemSearchLocation"
-                />
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/donations"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/searchMessage"
-                android:layout_alignParentStart="true"
-                android:scrollbars="vertical"
-                tools:listitem="@layout/location_list_format" />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical">
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Address: "
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/loc_detail_addr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="location det"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/loc_detail_coord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text="coord"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Phone Number:"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/loc_detail_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Website:"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/loc_detail_web"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#2196F3">
+
+                <Button
+                    android:id="@+id/buttonDonation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#33fc9f"
+                    android:text="New Donation" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Search Donations:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <SearchView
+                        android:id="@+id/itemSearchLocation"
+                        android:layout_width="456dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:textColor="#FFFFFF" />
+
+                    <Spinner
+                        android:id="@+id/searchSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/searchMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/donations"
+                    android:layout_width="187dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:background="#FFFFFF"
+                    android:scrollbars="vertical"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Existing Donations:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/existing_donations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/donation_item_format_white" />
+
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 

@@ -29,7 +29,6 @@ import java.net.URL;
 public class LocationActivity extends AppCompatActivity {
 
     private ArrayList<Location> locations;
-    private ArrayList<Donation> donations;
     private RecyclerView recyclerView;
     private RecyclerView donationRecyclerView;
     private SimpleLocationRecyclerViewAdapter adapter;
@@ -50,7 +49,6 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location);
 
         locations = modelLocations.get_current();
-        donations = new ArrayList<>();
 
         recyclerView = findViewById(R.id.location_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -90,7 +88,7 @@ public class LocationActivity extends AppCompatActivity {
         donationRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         updateSearchResults();
-        donationAdapter = new SimpleDonationRecyclerViewAdapter(this, searchResults);
+        donationAdapter = new SimpleDonationRecyclerViewAdapter(this, searchResults, false);
         donationRecyclerView.setAdapter(donationAdapter);
 
         Spinner spinner = (Spinner) findViewById(R.id.searchSpinner);
@@ -212,6 +210,8 @@ public class LocationActivity extends AppCompatActivity {
 
                 while ((line = in.readLine()) != null) {
                     String[] s = line.split(",", -1);
+                    for (String sa: s)
+                        System.out.print(sa+" ");
                     Donation don = new Donation(s[1], s[2], s[3], s[4], s[5], s[6], s[7]);
                     locations.get(Integer.parseInt(s[0]) - 1).addDonation(don, null);
                 }
