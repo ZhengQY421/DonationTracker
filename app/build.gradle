@@ -40,6 +40,9 @@ dependencies {
     //Maps
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
+    //Locations Services
+    implementation	'com.google.android.gms:play-services-location:16.0.0'
+
     // ConstraintLayout
     implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
 
