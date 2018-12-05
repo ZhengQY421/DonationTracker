@@ -5,7 +5,7 @@ selected location.
 
 ## To Run: 
 Open the folder containing all the files in Android Studio to run. Performance is significantly better if ran on a connected 
-to a phone with developer options enabled. 
+phone with developer options enabled. 
 
 ## Authors: 
 [John Thompson](https://github.com/mubtAAhij), [Oliver Zheng](https://github.com/ZhengQY421), [Shouen Lee](https://github.com/shouenlee), [Evan Goode](https://github.com/evan-goode), [Zach Panzarino](https://github.com/panzarino)
